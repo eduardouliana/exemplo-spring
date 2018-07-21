@@ -14,4 +14,7 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
 	@Query("select p from Pessoa p where p.cpf = :cpf")
 	List<Pessoa> porCpf(@Param("cpf") String cpf);
+	
+	@Query("select p from Pessoa p left join fetch p.naturalidade")
+	List<Pessoa> dadosGrid();
 }

@@ -36,4 +36,14 @@ public class PessoaPadrao implements PessoaRegra {
 	public List<Pessoa> listarPorCPF(String cpf) {
 		return pessoaRepository.porCpf(cpf);
 	}
+
+	@Override
+	public Pessoa buscarPorCodigo(Long codigo) {
+		return pessoaRepository.findById(codigo).orElse(new Pessoa());
+	}
+
+	@Override
+	public List<Pessoa> dadosGrid() {
+		return pessoaRepository.dadosGrid();
+	}
 }
